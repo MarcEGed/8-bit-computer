@@ -138,4 +138,37 @@ Contains all registers, including Wreg, PC and SP for now (will be kept if it do
     - SP_DEC  
     - STACK_WE  
     - STACK_RE  
-    - HALT  
+    - HALT    
+  
+### DATA COMMAND SIGNALS
+| Instruction | Wreg_WE | REG_WE | REG_SEL | RAM_RE | RAM_WE | RAM_ADDR_EN | ALU_OP | ALU_EN | PC_LOAD | PC_EN | SP_INC | SP_DEC | STACK_WE | STACK_RE | HALT |
+| ----------- | ------- | ------ | ------- | ------ | ------ | ----------- | ------ | ------ | ------- | ----- | ------ | ------ | -------- | -------- | ---- |
+| NOP         | 0       | 0      | –       | 0      | 0      | 0           | –      | 0      | 0       | 1     | 0      | 0      | 0        | 0        | 0    |
+| LOADI       | 1       | 0      | –       | 0      | 0      | 0           | –      | 0      | 0       | 1     | 0      | 0      | 0        | 0        | 0    |
+| LOADA       | 1       | 0      | –       | 1      | 0      | 1           | –      | 0      | 0       | 1     | 0      | 0      | 0        | 0        | 0    |
+| STORE       | 0       | 0      | –       | 0      | 1      | 1           | –      | 0      | 0       | 1     | 0      | 0      | 0        | 0        | 0    |
+| MOV W,Rn    | 1       | 0      | Rn      | 0      | 0      | 0           | –      | 0      | 0       | 1     | 0      | 0      | 0        | 0        | 0    |
+| MOVW Rn,W   | 0       | 1      | Rn      | 0      | 0      | 0           | –      | 0      | 0       | 1     | 0      | 0      | 0        | 0        | 0    |
+| PUSH        | 0       | 0      | –       | 0      | 0      | 0           | –      | 0      | 0       | 1     | 0      | 1      | 1        | 0        | 0    |
+| POP         | 1       | 0      | –       | 0      | 0      | 0           | –      | 0      | 0       | 1     | 1      | 0      | 0        | 1        | 0    |  
+
+
+### ALU COMMAND SIGNALS  
+| Instruction | Wreg_WE | REG_WE | REG_SEL | RAM_RE | RAM_WE | RAM_ADDR_EN | ALU_OP | ALU_EN | PC_LOAD | PC_EN | SP_INC | SP_DEC | STACK_WE | STACK_RE | HALT |
+| ----------- | ------- | ------ | ------- | ------ | ------ | ----------- | ------ | ------ | ------- | ----- | ------ | ------ | -------- | -------- | ---- |
+| ADD W,Rn    | 1       | 0      | Rn      | 0      | 0      | 0           | 000    | 1      | 0       | 1     | 0      | 0      | 0        | 0        | 0    |
+| SUB W,Rn    | 1       | 0      | Rn      | 0      | 0      | 0           | 001    | 1      | 0       | 1     | 0      | 0      | 0        | 0        | 0    |
+| AND W,Rn    | 1       | 0      | Rn      | 0      | 0      | 0           | 010    | 1      | 0       | 1     | 0      | 0      | 0        | 0        | 0    |
+| OR W,Rn     | 1       | 0      | Rn      | 0      | 0      | 0           | 011    | 1      | 0       | 1     | 0      | 0      | 0        | 0        | 0    |
+| XOR W,Rn    | 1       | 0      | Rn      | 0      | 0      | 0           | 100    | 1      | 0       | 1     | 0      | 0      | 0        | 0        | 0    |
+| NOT W       | 1       | 0      | –       | 0      | 0      | 0           | 101    | 1      | 0       | 1     | 0      | 0      | 0        | 0        | 0    |
+| INC W       | 1       | 0      | –       | 0      | 0      | 0           | 110    | 1      | 0       | 1     | 0      | 0      | 0        | 0        | 0    |
+| DEC W       | 1       | 0      | –       | 0      | 0      | 0           | 111    | 1      | 0       | 1     | 0      | 0      | 0        | 0        | 0    |  
+
+### JUMP COMMAND SIGNALS 
+| Instruction | Wreg_WE | REG_WE | REG_SEL | RAM_RE | RAM_WE | RAM_ADDR_EN | ALU_OP | ALU_EN | PC_LOAD       | PC_EN | SP_INC | SP_DEC | STACK_WE | STACK_RE | HALT |
+| ----------- | ------- | ------ | ------- | ------ | ------ | ----------- | ------ | ------ | ------------- | ----- | ------ | ------ | -------- | -------- | ---- |
+| JMP addr    | 0       | 0      | –       | 0      | 0      | 0           | –      | 0      | 1             | 0     | 0      | 0      | 0        | 0        | 0    |
+| JZ addr     | 0       | 0      | –       | 0      | 0      | 0           | –      | 0      | 1 if zeroF=1  | 0     | 0      | 0      | 0        | 0        | 0    |
+| JC addr     | 0       | 0      | –       | 0      | 0      | 0           | –      | 0      | 1 if carryF=1 | 0     | 0      | 0      | 0        | 0        | 0    |
+| HLT         | 0       | 0      | –       | 0      | 0      | 0           | –      | 0      | 0             | 0     | 0      | 0      | 0        | 0        | 1    |
