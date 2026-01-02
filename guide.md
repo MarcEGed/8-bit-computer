@@ -140,7 +140,7 @@ Contains all registers, including Wreg, PC and SP for now (will be kept if it do
     - STACK_RE  
     - HALT    
   
-### DATA COMMAND SIGNALS
+#### DATA COMMAND SIGNALS
 | Instruction | Wreg_WE | REG_WE | REG_SEL | RAM_RE | RAM_WE | RAM_ADDR_EN | ALU_OP | ALU_EN | PC_LOAD | PC_EN | SP_INC | SP_DEC | STACK_WE | STACK_RE | HALT |
 | ----------- | ------- | ------ | ------- | ------ | ------ | ----------- | ------ | ------ | ------- | ----- | ------ | ------ | -------- | -------- | ---- |
 | NOP         | 0       | 0      | –       | 0      | 0      | 0           | –      | 0      | 0       | 1     | 0      | 0      | 0        | 0        | 0    |
@@ -149,11 +149,11 @@ Contains all registers, including Wreg, PC and SP for now (will be kept if it do
 | STORE       | 0       | 0      | –       | 0      | 1      | 1           | –      | 0      | 0       | 1     | 0      | 0      | 0        | 0        | 0    |
 | MOV W,Rn    | 1       | 0      | Rn      | 0      | 0      | 0           | –      | 0      | 0       | 1     | 0      | 0      | 0        | 0        | 0    |
 | MOVW Rn,W   | 0       | 1      | Rn      | 0      | 0      | 0           | –      | 0      | 0       | 1     | 0      | 0      | 0        | 0        | 0    |
-| PUSH        | 0       | 0      | –       | 0      | 0      | 0           | –      | 0      | 0       | 1     | 0      | 1      | 1        | 0        | 0    |
-| POP         | 1       | 0      | –       | 0      | 0      | 0           | –      | 0      | 0       | 1     | 1      | 0      | 0        | 1        | 0    |  
+| PUSH        | 0       | 0      | –       | 0      | 0      | 0           | –      | 0      | 0       | 1     | 1      | 0      | 1        | 0        | 0    |
+| POP         | 1       | 0      | –       | 0      | 0      | 0           | –      | 0      | 0       | 1     | 0      | 1      | 0        | 1        | 0    |  
 
 
-### ALU COMMAND SIGNALS  
+#### ALU COMMAND SIGNALS  
 | Instruction | Wreg_WE | REG_WE | REG_SEL | RAM_RE | RAM_WE | RAM_ADDR_EN | ALU_OP | ALU_EN | PC_LOAD | PC_EN | SP_INC | SP_DEC | STACK_WE | STACK_RE | HALT |
 | ----------- | ------- | ------ | ------- | ------ | ------ | ----------- | ------ | ------ | ------- | ----- | ------ | ------ | -------- | -------- | ---- |
 | ADD W,Rn    | 1       | 0      | Rn      | 0      | 0      | 0           | 000    | 1      | 0       | 1     | 0      | 0      | 0        | 0        | 0    |
@@ -165,7 +165,7 @@ Contains all registers, including Wreg, PC and SP for now (will be kept if it do
 | INC W       | 1       | 0      | –       | 0      | 0      | 0           | 110    | 1      | 0       | 1     | 0      | 0      | 0        | 0        | 0    |
 | DEC W       | 1       | 0      | –       | 0      | 0      | 0           | 111    | 1      | 0       | 1     | 0      | 0      | 0        | 0        | 0    |  
 
-### JUMP COMMAND SIGNALS 
+#### JUMP COMMAND SIGNALS 
 | Instruction | Wreg_WE | REG_WE | REG_SEL | RAM_RE | RAM_WE | RAM_ADDR_EN | ALU_OP | ALU_EN | PC_LOAD       | PC_EN | SP_INC | SP_DEC | STACK_WE | STACK_RE | HALT |
 | ----------- | ------- | ------ | ------- | ------ | ------ | ----------- | ------ | ------ | ------------- | ----- | ------ | ------ | -------- | -------- | ---- |
 | JMP addr    | 0       | 0      | –       | 0      | 0      | 0           | –      | 0      | 1             | 0     | 0      | 0      | 0        | 0        | 0    |
