@@ -115,4 +115,27 @@ Contains all registers, including Wreg, PC and SP for now (will be kept if it do
     - clk  
     - clear
 - OUTPUTS
-    - dataOut (8 bit, goes to data bus)
+    - dataOut (8 bit, goes to data bus)  
+
+## CONTROL UNIT  
+- INPUTS
+    - INSTRUCTION (8 bits)  
+    - clk  
+    - zeroF  
+    - carryF  
+- OUTPUTS    
+    - Wreg_WE  
+    - REG_WE  
+    - REG_SEL  
+    - RAM_RE  
+    - RAM_WE  
+    - RAM_ADDR_EN  
+    - ALU_OP (3 bits)  
+    - ALU_EN  
+    - PC_LOAD  
+    - PC_EN  
+    - SP_INC  
+    - SP_DEC  
+    - STACK_WE  
+    - STACK_RE  
+    - HALT  
