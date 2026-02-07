@@ -145,7 +145,7 @@ Contains all registers except  PC and Wreg being standalones.
 | Instruction | Wreg_WE | Wreg_RE | REG_WE | REG_SEL | RAM_RE | RAM_WE | RAM_ADDR_EN | ALU_OP | ALU_EN | PC_LOAD | PC_EN | ROM_TO_DATABUS | RN_TO_DATABUS | IN_TO_DATABUS | OUT_EN | HALT |
 | ----------- | ------- | ------- | ------ | ------- | ------ | ------ | ----------- | ------ | ------ | ------- | ----- | ------ | ------ | -------- | -------- | ---- |
 | NOP         | 0       | 0       | 0      | –       | 0      | 0      | 0           | –      | 0      | 0       | 1     | 0      | 0      | 0        | 0        | 0    |
-| LOADI       | 1       | 0       | 0      | –       | 0      | 0      | 0           | –      | 0      | 0       | 1     | 0      | 0      | 0        | 0        | 0    |
+| LOADI       | 1       | 0       | 0      | –       | 0      | 0      | 0           | –      | 0      | 0       | 1     | 1      | 0      | 0        | 0        | 0    |
 | LOADA       | 1       | 0       | 0      | –       | 1      | 0      | 1           | –      | 0      | 0       | 1     | 0      | 0      | 0        | 0        | 0    |
 | STORE       | 0       | 1       | 0      | –       | 0      | 1      | 1           | –      | 0      | 0       | 1     | 0      | 0      | 0        | 0        | 0    |
 | MOV W Rn    | 1       | 0       | 0      | Rn      | 0      | 0      | 0           | –      | 0      | 0       | 1     | 0      | 0      | 0        | 0        | 0    |
@@ -170,9 +170,9 @@ Contains all registers except  PC and Wreg being standalones.
 #### JUMP COMMAND SIGNALS 
 | Instruction | Wreg_WE | Wreg_RE | REG_WE | REG_SEL | RAM_RE | RAM_WE | RAM_ADDR_EN | ALU_OP | ALU_EN | PC_LOAD       | PC_EN | ROM_TO_DATABUS | RN_TO_DATABUS | IN_TO_DATABUS | OUT_EN | HALT |
 | ----------- | ------- | ------- | ------ | ------- | ------ | ------ | ----------- | ------ | ------ | ------------- | ----- | ------ | ------ | -------- | -------- | ---- |
-| JMP addr    | 0       | 0       | 0      | –       | 0      | 0      | 0           | –      | 0      | 1             | 0     | 0      | 0      | 0        | 0        | 0    |
-| JZ addr     | 0       | 0       | 0      | –       | 0      | 0      | 0           | –      | 0      | 1 if zeroF=1  | 0     | 0      | 0      | 0        | 0        | 0    |
-| JC addr     | 0       | 0       | 0      | –       | 0      | 0      | 0           | –      | 0      | 1 if carryF=1 | 0     | 0      | 0      | 0        | 0        | 0    |
+| JMP addr    | 0       | 0       | 0      | –       | 0      | 0      | 0           | –      | 0      | 1             | 0     | 1      | 0      | 0        | 0        | 0    |
+| JZ addr     | 0       | 0       | 0      | –       | 0      | 0      | 0           | –      | 0      | 1 if zeroF=1  | 0     | 1      | 0      | 0        | 0        | 0    |
+| JC addr     | 0       | 0       | 0      | –       | 0      | 0      | 0           | –      | 0      | 1 if carryF=1 | 0     | 1      | 0      | 0        | 0        | 0    |
 | HLT         | 0       | 0       | 0      | –       | 0      | 0      | 0           | –      | 0      | 0             | 0     | 0      | 0      | 0        | 0        | 1    |
 
 

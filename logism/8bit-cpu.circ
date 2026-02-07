@@ -907,7 +907,7 @@
     <comp lib="8" loc="(1275,440)" name="Text">
       <a name="text" val="STORE"/>
     </comp>
-    <comp lib="8" loc="(1275,573)" name="Text">
+    <comp lib="8" loc="(1275,570)" name="Text">
       <a name="text" val="CLEAR"/>
     </comp>
     <comp lib="8" loc="(1280,385)" name="Text">
@@ -1329,7 +1329,7 @@
       <a name="matrixrows" val="8"/>
       <a name="offcolor" val="#000000"/>
     </comp>
-    <comp lib="8" loc="(2060,1357)" name="Text">
+    <comp lib="8" loc="(2060,1355)" name="Text">
       <a name="text" val="RAM TO DATABUS"/>
     </comp>
     <comp lib="8" loc="(2520,1305)" name="Text">
